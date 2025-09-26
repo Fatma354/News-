@@ -1,0 +1,90 @@
+/*import 'package:first/model/category_model.dart';
+import 'package:first/view/category_view.dart';
+import 'package:flutter/material.dart';
+
+class CategoryCard extends StatelessWidget {
+  const CategoryCard({super.key, required this.category});
+  final categoryModel category;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return CategoryView(
+                category: category.name,
+              );
+            },
+          ),
+        );
+      },
+      // في الملف ده عرفتي ويدجت اسمها CategoryCard، اللي بتاخد كائن categoryModel وتعرضه في واجهة المستخدم ككارت صغير (card) فيه صورة الفئة واسمها.
+      child: Padding(
+        padding: EdgeInsets.only(right: 16),
+        child: Container(
+          height: 100,
+          width: 160,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.fill, image: AssetImage(category.image)),
+              color: Colors.amber,
+              borderRadius: BorderRadius.circular(16)),
+          child: Center(
+            child: Text(
+              category.name,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}*/
+// tharwat
+import 'package:first/model/category_model.dart';
+import 'package:first/view/category_view.dart';
+import 'package:flutter/material.dart';
+
+class CategoryCard extends StatelessWidget {
+  const CategoryCard({super.key, required this.category});
+
+  final CategoryModel category;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return CategoryView(
+                category: category.categoryName,
+              );
+            },
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(right: 16),
+        child: Container(
+          height: 85,
+          width: 160,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            image: DecorationImage(
+                image: AssetImage(category.image), fit: BoxFit.fill),
+          ),
+          child: Center(
+            child: Text(
+              category.categoryName,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
